@@ -42,6 +42,9 @@ gem 'cancancan', '~> 1.15'
 # Role management library
 gem 'rolify', '~> 5.1'
 
+# Resolving TZInfo::DataSourceNotFound Errors on Alpine docker
+gem 'tzinfo-data'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

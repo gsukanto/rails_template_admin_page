@@ -1,10 +1,10 @@
 version: '2'
 
 services:
+  
   postgres:
-    image: postgres-alpine
-  redis:
-    image: redis-alpine
+    image: postgres:alpine
+  
   rails_template_admin_page:
     build: .
     command: unicorn
@@ -14,4 +14,6 @@ services:
       - "80:8080"
     depends_on:
       - postgres
-      - redis
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=rails_template_admin_page
