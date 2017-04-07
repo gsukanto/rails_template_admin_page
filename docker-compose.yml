@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgres-alpine
+  redis:
+    image: redis-alpine
+  rails_template_admin_page:
+    build: .
+    command: unicorn
+    volumes:
+      - .:/rails_template_admin_page
+    ports:
+      - "80:8080"
+    depends_on:
+      - postgres
+      - redis
